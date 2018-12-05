@@ -41,35 +41,35 @@ function sayHello() {
  */
 
 function drawRectangle() {
-  var ctx = document.getElementById("canvas2");
-  ctx.
+  var ctx = document.getElementById("canvas2").getContext("2d");
 
-let height = 0;
-let width = 0;
-let x = 0;
-let y = 0;
+  let height = 0;
+  let width = 0;
+  let x = 0;
+  let y = 0;
 
 height = prompt("Height:");
 while (height < 1) {
-  alert("Your height is too small.")
+  alert("Your height is too small.");
   height = prompt("Height:");
 }
-width = prompt("Width:")
+width = prompt("Width:");
 while (width < 1) {
-  alert("Your width is too small.")
+  alert("Your width is too small.");
   width = prompt("Width:");
 }
 x = prompt("X:");
-while {
-  alert("Your x-coordinate is too small.")
+while (x < 5){
+  alert("Your x-coordinate is too small.");
   x = prompt("X:");
 }
 y = prompt("Y:");
-while {
-  alert("Your y-coordinate is too small.")
+while(y < 5){
+  alert("Your y-coordinate is too small.");
   y = prompt("Y:");
 }
-
+ctx.fillRect(x, y, width, height);
+}
 /*
  * Color. 3 points.
  *
