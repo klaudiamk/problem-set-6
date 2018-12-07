@@ -68,7 +68,7 @@ while(y < 5){
   alert("Your y-coordinate is too small.");
   y = prompt("Y:");
 }
-ctx.fillRect(x, y, width, height);
+ctx.strokeRect(x, y, width, height);
 }
 /*
  * Color. 3 points.
@@ -96,7 +96,38 @@ ctx.fillRect(x, y, width, height);
  */
 
 function drawColoredRectangle() {
+  var ctx = document.getElementById("canvas3").getContext("2d");
 
+let color = "";
+
+color = prompt("Color:");
+
+if (color == "black") {
+    ctx.fillStyle = "black";
+}
+else if (color == "blue") {
+    ctx.fillStyle = "blue";
+}
+else if (color == "green") {
+    ctx.fillStyle = "green";
+}
+else if (color == "orange") {
+    ctx.fillStyle = "orange";
+}
+else if (color == "purple") {
+    ctx.fillStyle = "purple";
+}
+else if (color == "red") {
+    ctx.fillStyle = "red";
+}
+else if (color == "yellow") {
+    ctx.fillStyle = "yellow";
+}
+
+else {
+  alert ("This color is not supported by the system.");
+}
+  ctx.fillRect(10, 10, 100, 50);
 }
 
 /*
@@ -129,6 +160,23 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
+
+var ctx = document.getElementById("canvas4").getContext("2d");
+
+let side1 = 0;
+let side2 = 0;
+let side3 = 0;
+
+side1 = prompt("Side 1:");
+side2 = prompt("Side 2:");
+side3 = prompt("Side 3:");
+
+ctx.beginPath();
+    ctx.moveTo(75, 50);
+    ctx.lineTo(100, 75);
+    ctx.lineTo(100, 25);
+
+
 
 }
 
