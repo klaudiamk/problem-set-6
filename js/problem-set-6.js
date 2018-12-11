@@ -104,30 +104,37 @@ color = prompt("Color:");
 
 if (color == "black") {
     ctx.fillStyle = "black";
+      ctx.fillRect(10, 10, 100, 50);
 }
 else if (color == "blue") {
     ctx.fillStyle = "blue";
+      ctx.fillRect(10, 10, 100, 50);
 }
 else if (color == "green") {
     ctx.fillStyle = "green";
+      ctx.fillRect(10, 10, 100, 50);
 }
 else if (color == "orange") {
     ctx.fillStyle = "orange";
+      ctx.fillRect(10, 10, 100, 50);
 }
 else if (color == "purple") {
     ctx.fillStyle = "purple";
+      ctx.fillRect(10, 10, 100, 50);
 }
 else if (color == "red") {
     ctx.fillStyle = "red";
+      ctx.fillRect(10, 10, 100, 50);
 }
 else if (color == "yellow") {
     ctx.fillStyle = "yellow";
+      ctx.fillRect(10, 10, 100, 50);
 }
 
 else {
   alert ("This color is not supported by the system.");
 }
-  ctx.fillRect(10, 10, 100, 50);
+
 }
 
 /*
@@ -171,12 +178,17 @@ side1 = prompt("Side 1:");
 side2 = prompt("Side 2:");
 side3 = prompt("Side 3:");
 
-ctx.beginPath();
-    ctx.moveTo(75, 50);
-    ctx.lineTo(100, 75);
-    ctx.lineTo(100, 25);
+if () {
 
+}
+else if (){
 
+}
+else ( ){
+  
+}
+
+ctx.strokeRect(10, 10, width, height);
 
 }
 
@@ -201,6 +213,13 @@ ctx.beginPath();
 
 function drawSmileyFace() {
 
+var ctx = document.getElementById("canvas5").getContext("2d");
+
+let radius = 0;
+
+radius = prompt("Radius: ");
+  ctx.fill(10, 10, 100, 50);
+
 }
 
 /*
@@ -223,6 +242,9 @@ function drawSmileyFace() {
 
 function drawStar() {
 
+  var ctx = document.getElementById("canvas6").getContext("2d");
+
+
 }
 
 /*
@@ -241,6 +263,9 @@ function drawStar() {
  */
 
 function drawStopSign() {
+
+  var ctx = document.getElementById("canvas7").getContext("2d");
+
 
 }
 
@@ -263,6 +288,9 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
+
+  var ctx = document.getElementById("canvas8").getContext("2d");
+
 
 }
 
@@ -296,5 +324,8 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+
+  var ctx = document.getElementById("canvas9").getContext("2d");
+
 
 }
