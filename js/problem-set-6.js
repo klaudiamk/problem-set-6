@@ -177,19 +177,33 @@ let side3 = 0;
 side1 = prompt("Side 1:");
 side2 = prompt("Side 2:");
 side3 = prompt("Side 3:");
+let x = 10
+let y = 10;
 
-if () {
+triangle.clearRect(x, y, side1, side2);
 
+while(true) {
+if(((side1 ** 2) + (side2 ** 2) == (side3 ** 2)) && side1 > 0 && side2 > 0 && side3 > 0 && canvas.width - x - side1 >= 0 && canvas.height - y - side2 >= 0){
+  break;
 }
-else if (){
-
+else {
+  alert("That is not a valid right triangle.");
 }
-else ( ){
-  
 }
+triangle.beginPath();
+triangle.moveTo(x,y);
+triangle.lineTo(x, y + side1);
+triangle.stroke();
 
-ctx.strokeRect(10, 10, width, height);
+triangle.beginPath();
+triangle.moveTo(x,y + side1);
+triangle.lineTo(x + side2, y + side1);
+triangle.stroke();
 
+triangle.beginPath();
+triangle.moveTo(x,y);
+triangle.lineTo(x + side2, y + side1);
+triangle.stroke();
 }
 
 /*
