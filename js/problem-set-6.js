@@ -169,41 +169,28 @@ else {
 function drawTriangle() {
 
 var ctx = document.getElementById("canvas4").getContext("2d");
+  ctx.clearRect(10, 10, canvas4.width, canvas4.height);
 
-let side1 = 0;
-let side2 = 0;
-let side3 = 0;
+  let sides = [];
 
-side1 = prompt("Side 1:");
-side2 = prompt("Side 2:");
-side3 = prompt("Side 3:");
-let x = 10
-let y = 10;
+  for (i = 0; i < 3; i++){
+    do {
+      input = Number(prompt("Enter a side length:"));
+    } while (input < 1 || isNaN(input) == true)
+      sides.push(input);
+  }
 
-triangle.clearRect(x, y, side1, side2);
-
-while(true) {
-if(((side1 ** 2) + (side2 ** 2) == (side3 ** 2)) && side1 > 0 && side2 > 0 && side3 > 0 && canvas.width - x - side1 >= 0 && canvas.height - y - side2 >= 0){
-  break;
-}
-else {
-  alert("That is not a valid right triangle.");
-}
-}
-triangle.beginPath();
-triangle.moveTo(x,y);
-triangle.lineTo(x, y + side1);
-triangle.stroke();
-
-triangle.beginPath();
-triangle.moveTo(x,y + side1);
-triangle.lineTo(x + side2, y + side1);
-triangle.stroke();
-
-triangle.beginPath();
-triangle.moveTo(x,y);
-triangle.lineTo(x + side2, y + side1);
-triangle.stroke();
+  if (Math.pow(sides[0], 2) + Math.pow(sides[1], 2) == Math.pow(sides[2], 2)){
+    sides = sides.sort();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(10,sides[0]);
+    ctx.lineTo(sides[1], sides[0]);
+    ctx.lineTo(10, 10);
+    ctx.stroke();
+  }
+  else {
+    alert("That is not a valid right triangle.");
+  }
 }
 
 /*
@@ -229,12 +216,31 @@ function drawSmileyFace() {
 
 var ctx = document.getElementById("canvas5").getContext("2d");
 
-let radius = 0;
+ ctx.clearRect(0, 0, canvas5.width, canvas5.height);
 
-radius = prompt("Radius: ");
-  ctx.fill(10, 10, 100, 50);
+ let radius = 0;
 
+ do{
+   radius = Number(prompt("Enter a positive radius:"));
+ } while (radius < 1 || isNaN(radius) == true)
+
+ ctx.beginPath();
+ ctx.arc(radius + 10, radius + 10, radius, 0, 2 * Math.PI);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(radius + 10, radius + 10, radius * 0.7, 0, 1 * Math.PI);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(radius - 5, radius, radius * 0.10, 0, 2 * Math.PI);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(radius + 25, radius, radius * 0.10, 0, 2 * Math.PI);
+ ctx.stroke();
 }
+
 
 /*
  * Star. 9 points.
