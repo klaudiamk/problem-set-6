@@ -169,27 +169,28 @@ else {
 function drawTriangle() {
 
 var ctx = document.getElementById("canvas4").getContext("2d");
+  ctx.clearRect(10, 10, canvas4.width, canvas4.height);
 
-let side1 = 0;
-let side2 = 0;
-let side3 = 0;
+  let sides = [];
 
-side1 = prompt("Side 1:");
-side2 = prompt("Side 2:");
-side3 = prompt("Side 3:");
+  for (i = 0; i < 3; i++){
+    do {
+      input = Number(prompt("Enter a side length:"));
+    } while (input < 1 || isNaN(input) == true)
+      sides.push(input);
+  }
 
-if () {
-
-}
-else if (){
-
-}
-else ( ){
-
-}
-
-ctx.strokeRect(10, 10, width, height);
-
+  if (Math.pow(sides[0], 2) + Math.pow(sides[1], 2) == Math.pow(sides[2], 2)){
+    sides = sides.sort();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(10,sides[0]);
+    ctx.lineTo(sides[1], sides[0]);
+    ctx.lineTo(10, 10);
+    ctx.stroke();
+  }
+  else {
+    alert("That is not a valid right triangle.");
+  }
 }
 
 /*
@@ -215,12 +216,31 @@ function drawSmileyFace() {
 
 var ctx = document.getElementById("canvas5").getContext("2d");
 
-let radius = 0;
+ ctx.clearRect(0, 0, canvas5.width, canvas5.height);
 
-radius = prompt("Radius: ");
-  ctx.fill(10, 10, 100, 50);
+ let radius = 0;
 
+ do{
+   radius = Number(prompt("Radius:"));
+ } while (radius < 1 || isNaN(radius) == true)
+
+ ctx.beginPath();
+ ctx.arc(radius + 10, radius + 10, radius, 0, 2 * Math.PI);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(radius + 10, radius + 10, radius * 0.7, 0, 1 * Math.PI);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(radius - 5, radius, radius * 0.10, 0, 2 * Math.PI);
+ ctx.stroke();
+
+ ctx.beginPath();
+ ctx.arc(radius + 25, radius, radius * 0.10, 0, 2 * Math.PI);
+ ctx.stroke();
 }
+
 
 /*
  * Star. 9 points.
@@ -243,7 +263,12 @@ radius = prompt("Radius: ");
 function drawStar() {
 
   var ctx = document.getElementById("canvas6").getContext("2d");
+  clearRect(10, 10, width, height);
 
+let outerRadius = prompt("Outer Radius: ");
+let innerRadius = prompt("Inner Radius: ");
+
+if ()
 
 }
 
@@ -266,44 +291,7 @@ function drawStopSign() {
 
   var ctx = document.getElementById("canvas7").getContext("2d");
 
-  import javax.swing.*;
-  import java.awt.*;
-  public class StopSign extends JFrame {
-  String Stop = new String("STOP");
-  public void paint(Graphics gr){
-  super.paint(gr);
-  int[] xPoints = {90, 180, 300, 390, 390, 300, 180, 90 };
-  int[] yPoints = {180, 90, 90, 180, 300, 390, 390, 300 };
-  int numPoints = 8;
-  gr.drawPolygon(xPoints, yPoints, xPoints.length);
-  gr.setColor(Color.RED);
-  gr.fillPolygon(xPoints, yPoints, numPoints);
-  int[] xPoints1 = {100, 190, 290, 380, 380, 290, 190, 100 };
-  int[] yPoints1 = {190, 100, 100, 190, 290, 380, 380, 290 };
-  int numPoints1 = 8;
-  gr.drawPolygon(xPoints1, yPoints1, xPoints1.length);
-  gr.setColor(Color.white);
-  gr.fillPolygon(xPoints1, yPoints1, numPoints1);
-  int[] xPoints2 = {120, 200, 280, 360, 360, 280, 200, 120 };
-  int[] yPoints2 = {200, 120, 120, 200, 280, 360, 360, 280 };
-  int numPoints2 = 8;
-  gr.drawPolygon(xPoints2, yPoints2, xPoints2.length);
-  gr.setColor(Color.red);
-  gr.fillPolygon(xPoints2, yPoints2, numPoints2);
-  gr.setColor(Color.white);
-  gr.setFont(new Font("Arial", Font.BOLD, 85));
-  gr.drawString(Stop, 125, 260);
-
-
-  }
-  public static void main(String[] args){
-  StopSign frame = new StopSign();
-  frame.setSize(500,500);
-  frame.setVisible(true);
-  }
-  }
 }
-
 /*
  * Pyramid. 7 points.
  *
@@ -361,6 +349,44 @@ function drawPyramid() {
 function drawHouse() {
 
   var ctx = document.getElementById("canvas9").getContext("2d");
+  ctx.clearRect(0, 0, 150, -10);
+
+let houseColor = prompt("House Color: ");
+let doorColor = prompt("Front Door Color: ");
+
+if (houseColor || doorColor == "blue") {
+    ctx.fillStyle = "blue";
+      ctx.fillRect(10, 10, 100, 50);
+}
+else if (houseColor || doorColor == "brown") {
+    ctx.fillStyle = "brown";
+      ctx.fillRect(10, 10, 100, 50);
+}
+else if (houseColor || doorColor == "green") {
+    ctx.fillStyle = "green";
+      ctx.fillRect(10, 10, 100, 50);
+}
+else if (houseColor || doorColor == "orange") {
+    ctx.fillStyle = "orange";
+      ctx.fillRect(10, 10, 100, 50);
+}
+else if (houseColor || doorColor == "purple") {
+    ctx.fillStyle = "purple";
+      ctx.fillRect(10, 10, 100, 50);
+}
+else if (houseColor || doorColor == "red") {
+    ctx.fillStyle = "red";
+      ctx.fillRect(10, 10, 100, 50);
+}
+else if (houseColor || doorColor == "yellow") {
+    ctx.fillStyle = "yellow";
+      ctx.fillRect(10, 10, 100, 50);
+}
+
+else {
+  alert ("One of your colors is not supported by the system.");
+}
+
 
 
 }
