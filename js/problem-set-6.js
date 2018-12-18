@@ -242,6 +242,8 @@ var ctx = document.getElementById("canvas5").getContext("2d");
 }
 
 
+
+
 /*
  * Star. 9 points.
  *
@@ -263,13 +265,41 @@ var ctx = document.getElementById("canvas5").getContext("2d");
 function drawStar() {
 
   var ctx = document.getElementById("canvas6").getContext("2d");
-  clearRect(10, 10, width, height);
+  ctx.clearRect(10, 10, canvas6.width, canvas6.height);
 
-let outerRadius = prompt("Outer Radius: ");
-let innerRadius = prompt("Inner Radius: ");
+       let outerRadius = Number(prompt("Outer Radius: "));
+       let innerRadius = Number(prompt("Inner Radius: "));
 
-if ()
+       if (outerRadius >= innerRadius && canvas6.width >= outerRadius + 125 && canvas6.height >= outerRadius + 125 && innerRadius >= 1 && outerRadius >=1){
 
+         let points = 5;
+         let outerX = [];
+         let outerY = [];
+         let innerX = [];
+         let innerY = [];
+
+         for(let i = 0; i < points ; i++){
+          outerX.push(Math.cos((Math.PI * 2 * i) / points - (Math.PI / 2)) * outerRadius + 125);
+          outerY.push(Math.sin((Math.PI * 2 * i) / points - (Math.PI/2)) * outerRadius + 125);
+          innerX.push(Math.cos(((Math.PI * 2 * i) / points) - (Math.PI / 2) + (Math.PI / points)) * innerRadius + 125);
+          innerY.push(Math.sin(((Math.PI * 2 * i) / points) - (Math.PI / 2) + (Math.PI / points)) * innerRadius + 125);
+        }
+
+         ctx.beginPath();
+         ctx.moveTo(outerX [0], outerY [0]);
+
+         for(let j = 0; j < outerX.length; j++) {
+           ctx.lineTo(innerX [j], innerY [j]);
+           ctx.lineTo(outerX [j+1], outerY [j+1]);
+         }
+
+         ctx.lineTo(outerX [0], outerY [0]);
+         ctx.stroke();
+         ctx.closePath();
+     }
+     else {
+         alert("Invalid Input");
+       }
 }
 
 /*
@@ -290,7 +320,41 @@ if ()
 function drawStopSign() {
 
   var ctx = document.getElementById("canvas7").getContext("2d");
+   ctx.clearRect(0, 0, canvas7.width, canvas7.height);
 
+   let sidelength = 80;
+
+   let center = [10 + (sidelength) / 2 + sidelength / Math.sqrt(2), 10 + (sidelength / 2) + (sidelength / Math.sqrt(2))]
+
+   console.log(center);
+
+   let points = 8;
+   let pointX = [];
+   let pointY = [];
+
+   for(let i = 0; i < points; i++) {
+     pointX.push(Math.cos(((Math.PI * 2 * i) / points) - Math.PI / 8) * 100 + center[0]);
+     pointY.push(Math.sin(((Math.PI * 2 * i) / points) - Math.PI / 8) * 100 + center[1]);
+   }
+
+   ctx.beginPath();
+   ctx.moveTo([pointX][0], pointY[0]);
+
+   for(let j = 0; j < pointX.length; j++){
+     ctx.lineTo(pointX[j], pointY[j]);
+   }
+
+   ctx.lineTo(pointX[0], pointY[0]);
+   ctx.stroke();
+   ctx.fillStyle = "red";
+   ctx.fill();
+   ctx.closePath();
+   ctx.beginPath();
+   ctx.textAlign = "center";
+   ctx.font = "56px Serif";
+   ctx.fillStyle = "white";
+   ctx.fillText("STOP", center[0], center[1] + 15);
+   ctx.closePath()
 }
 /*
  * Pyramid. 7 points.
@@ -313,9 +377,31 @@ function drawStopSign() {
 function drawPyramid() {
 
   var ctx = document.getElementById("canvas8").getContext("2d");
+  ctx.clearRect(0, 0, canvas8.width, canvas8.height);
 
+  let side = Number(prompt("Length:"));
 
-}
+  let x = 10;
+  let y = canvas8.height - 10;
+  let i = 0;
+
+  lineNumber = 1;
+
+  while(i < 5){
+    for(let j = 0 + lineNumber; j <= 5; j++){
+      ctx.strokeRect(x, y - side ,side, side);
+      x += side;
+    }
+
+    x=10+(side / 2) * lineNumber;
+    y -= side;
+    lineNumber++;
+    i++;
+
+  }
+
+  }
+
 
 /*
  * House. 7 points.
@@ -351,42 +437,61 @@ function drawHouse() {
   var ctx = document.getElementById("canvas9").getContext("2d");
   ctx.clearRect(0, 0, 150, -10);
 
-let houseColor = prompt("House Color: ");
-let doorColor = prompt("Front Door Color: ");
+while (true) {
+  let houseColor = prompt("House Color: ");
+  let doorColor = prompt("Front Door Color: ");
 
-if (houseColor || doorColor == "blue") {
-    ctx.fillStyle = "blue";
-      ctx.fillRect(10, 10, 100, 50);
-}
-else if (houseColor || doorColor == "brown") {
-    ctx.fillStyle = "brown";
-      ctx.fillRect(10, 10, 100, 50);
-}
-else if (houseColor || doorColor == "green") {
-    ctx.fillStyle = "green";
-      ctx.fillRect(10, 10, 100, 50);
-}
-else if (houseColor || doorColor == "orange") {
-    ctx.fillStyle = "orange";
-      ctx.fillRect(10, 10, 100, 50);
-}
-else if (houseColor || doorColor == "purple") {
-    ctx.fillStyle = "purple";
-      ctx.fillRect(10, 10, 100, 50);
-}
-else if (houseColor || doorColor == "red") {
-    ctx.fillStyle = "red";
-      ctx.fillRect(10, 10, 100, 50);
-}
-else if (houseColor || doorColor == "yellow") {
-    ctx.fillStyle = "yellow";
-      ctx.fillRect(10, 10, 100, 50);
-}
+if ((houseColor == "brown" || houseColor == "blue" || houseColor == "green" || houseColor == "orange" || houseColor == "purple" || houseColor == "red" || houseColor == "yellow")
+&& (doorColor == "brown" || doorColor == "blue" || doorColor == "green" || doorColor == "orange" || doorColor == "purple" || doorColor == "red" || doorColor == "yellow"))
+
+break;
 
 else {
   alert ("One of your colors is not supported by the system.");
 }
 
+}
 
+let houseHeight = (canvas9.height / 5) * 3;
+let houseWidth = canvas9.width - 300;
+
+ cxt.clearRect(150, canvas9.height - 10 - houseHeight, houseWidth, houseHeight);
+
+  ctx.fillStyle = houseColor;
+  cxt.fill();
+  cxt.strokeStyle = "black";
+  cxt.stroke();
+  cxt.beginPath();
+  cxt.moveTo(512, 10);
+  cxt.lineTo(151,294);
+  cxt.lineTo(873,294);
+  cxt.closePath();
+  cxt.lineWidth = 2;
+  cxt.stroke();
+
+  cxt.fillStyle = "gray";
+  cxt.fill();
+
+  cxt.fillStyle = doorColor;
+  cxt.fillRect(450, 540, 124, 210);
+  cxt.strokeRect(450,540,124,210);
+  cxt.lineWidth = 2;
+  cxt.beginPath();
+  cxt.moveTo(568, 645);
+  cxt.arc(560, 645, 8, 0, Math.PI * 2);
+  cxt.stroke();
+
+  cxt.fillStyle = "yellow";
+  cxt.fill();
+
+  cxt.fillStyle = "lightBlue";
+  cxt.fillRect(250, 367, 100, 100);
+  cxt.strokeRect(250, 367, 100, 100);
+  cxt.fillRect(250, canvas9.height-185, 100, 100);
+  cxt.strokeRect(250, canvas9.height-185, 100, 100);
+  cxt.fillRect(674, 367, 100, 100);
+  cxt.strokeRect(674, 367, 100, 100);
+  cxt.fillRect(674, canvas9.height-185, 100, 100);
+  cxt.strokeRect(674, canvas9.height-185, 100, 100);
 
 }
